@@ -1,9 +1,13 @@
-//REact template
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './style.css';
 import App from './App';
-
-
-
-ReactDOM.render(<App />, document.getElementById("root"));
+import { AppProvider } from './context';
+ReactDOM.render(
+  <React.StrictMode>
+    <AppProvider>
+      <App />
+    </AppProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);

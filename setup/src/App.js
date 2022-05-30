@@ -1,17 +1,25 @@
-import React, { useState } from "react";
-import {Button} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-export default function App() {
-
-
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+// import pages
+import Home from './pages/Home'
+import About from './pages/About'
+import SingleCocktail from './pages/SingleCocktail'
+import Error from './pages/Error'
+// import components
+import Navbar from './components/Navbar'
+function App() {
   return (
-  <div className="col-sm-4 d-grid gap-2">
-  <button type="button" class="btn btn-primary">Left</button>
-  <button type="button" class="btn btn-primary">Middle</button>
-  <button type="button" class="btn btn-primary">Right</button>
-  </div>
 
+    <Router>
+    <Navbar/>
+    <Routes>
+    <Route exact path="/" element={<Home/>} />
+    <Route exact path="/about" element={<About/>} />
+    <Route exact path="/cocktail/:id" element={<SingleCocktail/>} />
+    <Route exact path="*" element={<Error/>} />
+    </Routes>
+    </Router>
   )
-  }
+}
+
+export default App
